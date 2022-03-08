@@ -1,3 +1,5 @@
+//------------------------------------table-----------------------------------------
+
 const tableInfo = [
   {
     studentName: "John",
@@ -40,7 +42,7 @@ createTable();
 
 function createTable() {
   var headers = ["studentName", "Age", "Phone", "Address"];
-  var table = document.createElement("TABLE"); //makes a table element for the page
+  var table = document.createElement("TABLE");
 
   for (var i = 0; i < tableInfo.length; i++) {
     var row = table.insertRow(i);
@@ -49,28 +51,18 @@ function createTable() {
     row.insertCell(2).innerHTML = tableInfo[i].Phone;
     row.insertCell(3).innerHTML = tableInfo[i].Address;
   }
-
   var header = table.createTHead();
   var headerRow = header.insertRow(0);
   for (var i = 0; i < headers.length; i++) {
     headerRow.insertCell(i).innerHTML = headers[i];
   }
-
   document.body.append(table);
 }
 
 var element = document.createElement("hr");
 document.body.appendChild(element);
 
-// const list = ["HTML", "JavaScript", "CSS", "React", "Redux", "Java"];
-
-// let theList = document.getElementById("myList");
-
-// list.forEach((item) => {
-//   let li = document.createElement("li");
-//   li.innerText = item;
-//   theList.appendChild(li);
-// });
+//------------------------------------ordered list-----------------------------------------
 
 const list = ["HTML", "JavaScript", "CSS", "React", "Redux", "Java"];
 
@@ -84,7 +76,6 @@ function makeOList() {
   var numberOfListItems = list.length,
     listItem,
     i;
-
   // Add it to the page
   document.getElementsByTagName("body")[0].appendChild(listContainer);
   listContainer.appendChild(listElement);
@@ -103,37 +94,32 @@ function makeOList() {
 // Usage
 makeOList();
 
+//------------------------------------unordered list-----------------------------------------
+
 var element = document.createElement("hr");
 document.body.appendChild(element);
 
 function makeList() {
-  // Establish the array which acts as a data source for the list
-  // Make a container element for the list
   var listContainer = document.createElement("div");
-  // Make the list
   var listElement = document.createElement("ul");
-  // Set up a loop that goes through the items in listItems one at a time
   var numberOfListItems = list.length,
     listItem,
     i;
-
-  // Add it to the page
   document.getElementsByTagName("body")[0].appendChild(listContainer);
   listContainer.appendChild(listElement);
 
   for (i = 0; i < numberOfListItems; ++i) {
-    // create an item for each one
     listItem = document.createElement("li");
-
-    // Add the item text
     listItem.innerHTML = list[i];
-
-    // Add listItem to the listElement
     listElement.appendChild(listItem);
   }
 }
-// Usage
 makeList();
+
+var element = document.createElement("hr");
+document.body.appendChild(element);
+
+//------------------------------------drop down list-----------------------------------------
 
 const dropDownList = [
   { value: "newark", content: "Newark" },
@@ -143,3 +129,18 @@ const dropDownList = [
   { value: "dalyCity", content: "Daly City" },
   { value: "sanJose", content: "San Jose" },
 ];
+
+var select = document.createElement("select");
+document.body.appendChild(select);
+
+dropDownListFunc();
+
+function dropDownListFunc() {
+  for (var i = 0; i < dropDownList.length; i++) {
+    var option = document.createElement("OPTION"),
+      txt = document.createTextNode(dropDownList[i].content);
+    option.appendChild(txt);
+    option.setAttribute("value", dropDownList[i].value);
+    select.insertBefore(option, select.lastChild);
+  }
+}
