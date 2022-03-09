@@ -28,16 +28,6 @@ const tableInfo = [
   },
 ];
 
-// let table = document.createElement("table");
-// for (let row of Object.keys(tableInfo)) {
-//   table.insertRow();
-//   for (let cell of row) {
-//     let newCell = table.rows[table.rows.length - 1].insertCell();
-//     newCell.tectContent = cell;
-//   }
-// }
-// document.body.appendChild(table);
-
 createTable();
 
 function createTable() {
@@ -105,7 +95,7 @@ function makeList() {
   var numberOfListItems = list.length,
     listItem,
     i;
-  document.getElementsByTagName("body")[0].appendChild(listContainer);
+  document.getElementsByTagName("body")[0].appendChild(listContainer); //get the tag name and then append child
   listContainer.appendChild(listElement);
 
   for (i = 0; i < numberOfListItems; ++i) {
